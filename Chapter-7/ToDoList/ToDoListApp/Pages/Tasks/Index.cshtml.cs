@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ToDoListApp.Models;
 
-namespace ToDoListApp.Pages;
+namespace ToDoListApp.Pages.Tasks;
 
 public class IndexModel : PageModel
 {

@@ -6,6 +6,12 @@
 }
 
 <div class="text-center">
+	@if (TempData["SuccessMessage"] != null)
+	{
+		<div class="alert alert-success" role="alert">
+			@TempData["SuccessMessage"]
+		</div>
+	}
 	<h1 class="display-4">@ViewData["Title"]</h1>
 	<div class="row">
 		<kanban-list name="To Do" size="4">
