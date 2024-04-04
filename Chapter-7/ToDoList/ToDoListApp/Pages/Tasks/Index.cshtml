@@ -6,34 +6,33 @@
 }
 
 <div class="text-center">
+
 	@if (TempData["SuccessMessage"] != null)
 	{
 		<div class="alert alert-success" role="alert">
 			@TempData["SuccessMessage"]
 		</div>
 	}
-	<h1 class="display-4">@ViewData["Title"]</h1>
+
 	<div class="row">
 		<kanban-list name="To Do" size="4">
 			@foreach (var task in Model.Tasks.Where(t => t.Status == ETaskStatus.ToDo))
 			{
-				<kanban-card task="@task.Title">
-				</kanban-card>
+				<partial name="_TaskItem" model="@task" />
 			}
 		</kanban-list>
 		<kanban-list name="In-progress" size="4">
 			@foreach (var task in Model.Tasks.Where(t => t.Status == ETaskStatus.Doing))
 			{
-				<kanban-card task="@task.Title">
-				</kanban-card>
+				<partial name="_TaskItem" model="@task" />
 			}
 		</kanban-list>
 		<kanban-list name="Done" size="4">
 			@foreach (var task in Model.Tasks.Where(t => t.Status == ETaskStatus.Done))
 			{
-				<kanban-card task="@task.Title">
-				</kanban-card>
+				<partial name="_TaskItem" model="@task" />
 			}
 		</kanban-list>
 	</div>
+
 </div>
